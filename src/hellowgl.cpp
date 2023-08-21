@@ -161,6 +161,15 @@ WinMain(HINSTANCE hCurrentInst, HINSTANCE hPreviousInst,
     hRC = wglCreateContext(hDC);
     wglMakeCurrent(hDC, hRC);
 
+   const char* s = (const char*)glGetString(GL_VERSION);
+   printf("%s\n", glGetString(GL_VERSION));
+   int msgboxID = MessageBox(
+      NULL,
+      s,
+      "glversion",
+      MB_ICONEXCLAMATION | MB_OK
+   );
+
     ShowWindow(hWnd, nCmdShow);
 
     while (GetMessage(&msg, hWnd, 0, 0)) {
